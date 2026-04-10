@@ -96,7 +96,7 @@ Los diagramas del proyecto se encuentran en la carpeta `diagramas/`:
 
 El proceso de limpieza y transformación de los datos se encuentra en:
 
-- `notebooks/limpieza_y_transformacion_datos.ipynb`
+- `notebooks/proyect_SQL_cleanup (FINAL).ipynb`
 
 ---
 
@@ -105,10 +105,9 @@ El proceso de limpieza y transformación de los datos se encuentra en:
 Los scripts SQL del proyecto se encuentran en la carpeta `sql/`:
 
 - `01_create_tables.sql`
-- `02_insert_data.sql`
-- `03_queries_demo.sql`
+- `02_queries_demo.sql`
 
-Estos archivos recogen la estructura general, la carga de datos y las consultas utilizadas como base para la demostración final del proyecto.
+Estos archivos recogen la estructura general del proyecto y las consultas utilizadas como base para la demostración final.
 
 ---
 
