@@ -2,11 +2,13 @@
 
 Proyecto de diseño e implementación de una **base de datos relacional** a partir de archivos CSV con información de estudiantes y claustro, desarrollado en **PostgreSQL**.
 
+---
+
 ## Objetivo
 
 El objetivo del proyecto fue transformar una estructura plana de datos en un modelo relacional organizado, normalizado y preparado para consultas SQL.
 
-Para ello, se trabajó en tres fases principales:
+A partir de varios archivos CSV, se trabajó en tres fases principales:
 
 - limpieza y transformación de los datos con **pandas**
 - diseño del **modelo entidad-relación** y del **modelo lógico**
@@ -24,24 +26,28 @@ Los archivos utilizados como punto de partida fueron:
 - `clase_4.csv`
 - `claustro.csv`
 
-Los cuatro archivos de clase contenían información de estudiantes y compartían una estructura similar, por lo que se integraron en un único conjunto de datos.  
-El archivo `claustro.csv` se trató por separado al corresponder a una entidad diferente.
+Los cuatro archivos de clase contenían información de estudiantes y compartían una estructura similar, por lo que se integraron en un único conjunto de datos.
+
+El archivo `claustro.csv` se trató por separado al corresponder a una entidad diferente dentro del modelo.
 
 ---
 
 ## Proceso realizado
 
 ### 1. Limpieza y transformación
+Durante esta fase se realizó:
+
 - concatenación de los archivos de estudiantes
 - carga separada de `claustro.csv`
-- corrección de pequeñas inconsistencias
+- corrección de pequeñas inconsistencias en columnas y nombres
 - transformación de proyectos de formato ancho a formato largo mediante `melt`
-- creación de tablas de referencia y tablas principales
+- preparación de tablas de referencia y tablas principales
 
 ### 2. Normalización
-Se separaron los valores repetidos en tablas independientes para reducir redundancia y mejorar la consistencia del modelo.
+Se separaron los valores repetidos en tablas independientes para reducir redundancia, mejorar la consistencia del modelo y facilitar su mantenimiento.
 
-Tablas de apoyo creadas:
+Entre las tablas de apoyo generadas se encuentran:
+
 - `campus`
 - `modalidad`
 - `promocion`
@@ -50,10 +56,12 @@ Tablas de apoyo creadas:
 - `tipo_proyecto`
 
 ### 3. Modelado
-Se elaboró un **diagrama E/R** y un **modelo lógico** para representar las entidades principales, sus atributos y relaciones.
+Se elaboró un **diagrama entidad-relación** para representar de forma conceptual las entidades principales y sus relaciones.
+
+Además, se desarrolló un **modelo lógico final** alineado con la estructura implementada en PostgreSQL, incluyendo tablas principales, tablas de apoyo y relaciones mediante claves primarias y foráneas.
 
 ### 4. Implementación en PostgreSQL
-Se creó la base de datos en PostgreSQL y se implementaron las tablas necesarias para almacenar la información transformada y ejecutar consultas SQL.
+La base de datos fue implementada en PostgreSQL mediante pgAdmin, con las tablas principales ya creadas y los datos cargados para su posterior demostración.
 
 ---
 
@@ -94,13 +102,27 @@ El proceso de limpieza y transformación de los datos se encuentra en:
 
 ## Scripts SQL
 
-Los scripts SQL se encuentran en la carpeta `sql/`:
+Los scripts SQL del proyecto se encuentran en la carpeta `sql/`:
 
 - `01_create_tables.sql`
 - `02_insert_data.sql`
 - `03_queries_demo.sql`
 
-> Nota: estos archivos recogen la estructura y las consultas del proyecto y pueden seguir ajustándose para reflejar exactamente la versión final validada en PostgreSQL.
+Estos archivos recogen la estructura general, la carga de datos y las consultas utilizadas como base para la demostración final del proyecto.
+
+---
+
+## Queries de demostración
+
+Para la demo final se plantearon consultas centradas en:
+
+- estudiantes por promoción
+- estudiantes por campus
+- estudiantes por vertical
+- proyectos con más calificaciones “Apto”
+- proyectos con más calificaciones “No Apto”
+
+Estas consultas permiten comprobar que la base ya está preparada para responder preguntas relevantes a partir de su estructura relacional.
 
 ---
 
